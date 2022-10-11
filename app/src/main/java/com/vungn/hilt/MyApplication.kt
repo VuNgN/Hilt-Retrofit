@@ -1,7 +1,6 @@
-package com.vungn.hilt.ui.activity
+package com.vungn.hilt
 
 import android.app.Application
-import android.content.Context
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

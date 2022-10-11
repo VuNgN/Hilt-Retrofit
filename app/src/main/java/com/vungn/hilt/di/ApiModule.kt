@@ -2,10 +2,11 @@ package com.vungn.hilt.di
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.vungn.hilt.data.reponsitory.impl.FilmRepoImpl
 import com.vungn.hilt.data.restful.ApiService
-import dagger.hilt.InstallIn
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -31,4 +32,7 @@ object ApiModule {
     @Singleton
     @Provides
     fun provideApiServer(retrofit: Retrofit) = retrofit.create(ApiService::class.java)
+
+    @Provides
+    fun provideImpl(apiService: ApiService) = FilmRepoImpl(apiService)
 }
